@@ -5,8 +5,13 @@ import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-const Pomodoro = () => {
-  const [time, setTime] = useState(25 * 60); // 25 minutes in seconds
+const Pomodoro = ({
+  time,
+  setTime,
+}: {
+  time: number;
+  setTime: (time: number) => void;
+}) => {
   const [isActive, setIsActive] = useState(false);
   const [goal, setGoal] = useState("");
 
@@ -21,7 +26,7 @@ const Pomodoro = () => {
       // if the timer is active and the time is greater than 0
       interval = setInterval(() => {
         // start an interval to decrement the time by 1 second
-        setTime((prevTime) => prevTime - 1); // decrement the time by 1 second
+        setTime((prevTime: number) => prevTime - 1); // decrement the time by 1 second
       }, 1000);
     } else if (time === 0) {
       // if the time is 0
