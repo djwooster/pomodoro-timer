@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -62,15 +62,15 @@ const Pomodoro = () => {
     <div className="flex flex-col p-4 items-center w-[800px] bg-gray-100 rounded-lg dark:bg-gray-900">
       <div className="w-[100%]">
         <div className="flex flex-col p-8 w-full items-center justify-center bg-white dark:bg-gray-800 rounded-lg shadow-lg">
-          <h1 className="text-xl w-full font-semibold text-center text-gray-600 dark:text-gray-200">
-            Pomodoro Timer
-          </h1>
           <div className="items-center justify-center w-fit mb-8">
             <div
-              id="timer-inputs"
-              className="flex flex-col w-6/12items-center gap-3 justify-center"
+              id="top-content"
+              className="flex flex-col w-full items-center gap-2 justify-center"
             >
-              <h1 className="text-[12rem] font-semibold min-w-8 text-center border-none  text-zinc-800 dark:text-gray-200">
+              <h1 className="text-lg w-full leading-[140%] font-semibold text-center text-zinc-600 dark:text-gray-200">
+                Pomodoro Timer
+              </h1>
+              <h1 className="text-[12rem] font-bold min-w-8 tracking-[-.05em] text-center border-none  text-zinc-900 dark:text-gray-200">
                 {formatTime(time)}
               </h1>
 
@@ -82,7 +82,10 @@ const Pomodoro = () => {
               className="font-semibold font-8xl min-w-8 text-center border-none  text-zinc-800 dark:text-gray-200"
               readOnly={isActive}
             /> */}
-              <div className="flex justify-center gap-4">
+              <div
+                id="timer-buttons"
+                className="flex justify-center w-full gap-4"
+              >
                 <Button
                   onClick={toggleTimer}
                   variant={isActive ? "destructive" : "default"}
@@ -110,11 +113,14 @@ const Pomodoro = () => {
                 value={goal || ""}
                 onChange={(e) => setGoal(e.target.value)}
                 placeholder="What do you want to accomplish in this session?"
-                className="w-full placeholder:text-gray-500 placeholder:text-sm dark:placeholder:text-gray-200 p-2 text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 rounded-lg"
+                className="w-full placeholder:text-gray-500 placeholder:text-sm dark:placeholder:text-gray-200 p-2 text-gray-800 dark:text-gray-200 bg-zinc-50 dark:bg-gray-700 rounded-lg"
               />
             </div>
             <div className="w-fit">
-              <Button variant="outline" className="w-fit">
+              <Button
+                variant="outline"
+                className="w-fit hover:bg-gray-50 hover:text-gray-800 transition-all duration-300"
+              >
                 Save
               </Button>
             </div>
