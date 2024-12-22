@@ -1,4 +1,12 @@
-import { Calendar, Clock, Home, Inbox, Search, Settings } from "lucide-react";
+import {
+  Brain,
+  Calendar,
+  Clock,
+  Home,
+  Inbox,
+  Search,
+  Settings,
+} from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 import {
@@ -24,6 +32,11 @@ const items = [
     title: "History",
     url: "/history",
     icon: Clock,
+  },
+  {
+    title: "Learn Productivity",
+    url: "/learn-productivity",
+    icon: Brain,
   },
 ];
 

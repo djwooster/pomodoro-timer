@@ -1,34 +1,36 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 
 const Pomodoro = ({
-  time,
-  setTime,
+  initialTime,
+  setInitialTime,
+  isActive,
+  setIsActive,
 }: {
-  time: number;
-  setTime: (time: number) => void;
+  initialTime: number;
+  setInitialTime: (time: number) => void;
+  isActive: boolean;
+  setIsActive: () => void;
 }) => {
-  const [isActive, setIsActive] = useState(false);
   const [goal, setGoal] = useState("");
 
   useEffect(() => {
-    document.title = `${formatTime(time)}`;
-  }, [time]);
+    document.title = `${formatTime(initialTime)}`;
+  }, [initialTime]);
 
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
 
-    if (isActive && time > 0) {
+    if (isActive && initialTime > 0) {
       // if the timer is active and the time is greater than 0
       interval = setInterval(() => {
         // start an interval to decrement the time by 1 second
-        setTime((prevTime: number) => prevTime - 1); // decrement the time by 1 second
+        setInitialTime((prevTime: number) => prevTime - 1); // decrement the time by 1 second
       }, 1000);
-    } else if (time === 0) {
+    } else if (initialTime === 0) {
       // if the time is 0
       setIsActive(false); // stop the timer
     }
@@ -36,12 +38,12 @@ const Pomodoro = ({
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [isActive, time]);
+  }, [isActive, initialTime]);
 
   const toggleTimer = () => {
-    if (isActive && time > 0) {
+    if (isActive && initialTime > 0) {
       // if the timer is active and the time is greater than 0
-      setTime(time); // set the time to the current time
+      setInitialTime(initialTime); // set the time to the current time
 
       setIsActive(false);
     } else {
@@ -51,7 +53,7 @@ const Pomodoro = ({
 
   const resetTimer = () => {
     setIsActive(false);
-    setTime(25 * 60);
+    setInitialTime(25 * 60);
   };
 
   const formatTime = (timeInSeconds: number) => {
@@ -67,7 +69,7 @@ const Pomodoro = ({
     <div className="flex flex-col p-4 items-center w-[800px] bg-gray-100 rounded-lg dark:bg-gray-900">
       <div className="w-[100%]">
         <div className="flex flex-col p-8 w-full items-center justify-center bg-white dark:bg-gray-800 rounded-lg shadow-lg">
-          <div className="items-center justify-center w-fit mb-8">
+          <div className="items-center justify-center w-full mb-8">
             <div
               id="top-content"
               className="flex flex-col w-full items-center gap-2 justify-center"
@@ -76,7 +78,7 @@ const Pomodoro = ({
                 Pomodoro Timer
               </h1>
               <h1 className="text-[12rem] font-bold min-w-8 tracking-[-.05em] text-center border-none  text-zinc-900 dark:text-gray-200">
-                {formatTime(time)}
+                {formatTime(initialTime)}
               </h1>
 
               {/* <Input
