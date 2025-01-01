@@ -21,6 +21,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "",
   description: "A simple pomodoro timer",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
