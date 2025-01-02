@@ -59,10 +59,10 @@ const Timer = ({
   };
 
   return (
-    <div className="flex flex-col p-4 items-center w-[800px] bg-gray-100 rounded-lg dark:bg-gray-900 transition-all duration-200">
+    <div className="flex flex-col p-4 items-center w-[800px] bg-[#242424] rounded-lg dark:bg-gray-900 transition-all duration-200">
       <div className="w-[100%] relative">
-        <RedLight className="absolute top-0 right-0" />
-        <div className="flex flex-col p-8 w-full items-center justify-center bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+        <RedLight isActive={isActive} className="absolute top-0 right-0" />
+        <div className="flex flex-col p-8 w-full items-center justify-center bg-[#242424] dark:bg-gray-800 rounded-lg shadow-lg">
           <div className="items-center justify-center w-full mb-8">
             <div
               id="top-content"
@@ -75,16 +75,16 @@ const Timer = ({
               <div className="flex flex-row items-center gap-12">
                 <button
                   onClick={decrementTime}
-                  className="text-2xl p-3 h-12 w-12 font-bold flex items-center justify-center hover:bg-zinc-100 rounded-full transition-all duration-300 hover:shadow-md"
+                  className="text-zinc-200 text-2xl p-3 h-12 w-12 font-bold flex items-center justify-center hover:bg-zinc-100 rounded-full transition-all duration-300 hover:shadow-md"
                 >
                   -
                 </button>
-                <h1 className="text-[10rem] font-bold min-w-[500px] tracking-[-.05em] text-center border-none  text-zinc-900 dark:text-gray-200">
+                <h1 className="text-[10rem] font-bold min-w-[500px] tracking-[-.05em] text-center border-none  text-zinc-200 dark:text-gray-200">
                   {formatTime(displayTime)}
                 </h1>
                 <button
                   onClick={incrementTime}
-                  className="text-2xl p-3 h-12 w-12 font-bold flex items-center justify-center hover:bg-zinc-100 rounded-full transition-all duration-300 hover:shadow-md"
+                  className="text-zinc-200 text-2xl p-3 h-12 w-12 font-bold flex items-center justify-center hover:bg-zinc-100 rounded-full transition-all duration-300 hover:shadow-md"
                 >
                   +
                 </button>
@@ -104,7 +104,7 @@ const Timer = ({
                   <Button
                     onClick={toggleTimer}
                     variant={isActive ? "destructive" : "default"}
-                    className="w-full"
+                    className="w-full bg-[#4a1d1d] outline-none hover:bg-[#592121] hover:text-white v transition-all duration-300"
                   >
                     {isActive ? "Pause" : "Start"}
                   </Button>

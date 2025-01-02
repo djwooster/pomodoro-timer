@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Brain,
   Calendar,
@@ -20,6 +22,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
+import { useState } from "react";
 
 // Menu items.
 const items = [
@@ -41,16 +44,21 @@ const items = [
 ];
 
 export function AppSidebar() {
+  const [isCurrent, setIsCurrent] = useState(false);
+
   return (
     <Sidebar>
-      <SidebarContent>
+      <SidebarContent className="bg-[#1E1E1E]">
         <SidebarGroup>
           <SidebarGroupLabel></SidebarGroupLabel>
           <SidebarGroupContent className="flex flex-col gap-2">
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton
+                    asChild
+                    className="text-blue-50 hover:bg-zinc-800 hover:text-pink-600 transition-all duration-300"
+                  >
                     <Link href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>

@@ -18,7 +18,7 @@ const Progressbar = ({
       style={{
         width: "800px",
         height: "12px",
-        backgroundColor: "#e0e0e0",
+        backgroundColor: "#181818",
         borderRadius: "100px",
       }}
     >
@@ -28,7 +28,7 @@ const Progressbar = ({
           maxWidth: "100%",
           transition: "all 1.5s ease-in-out",
           height: "100%",
-          backgroundColor: "black",
+          backgroundColor: "#644754 ",
           borderRadius: "100px",
         }}
       />

@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import { Button } from "./Button";
+import { Check } from "lucide-react";
 
 const TimeSetter = ({
   setDisplayTime,
-  isActive,
-  setIsActive,
 }: {
   setDisplayTime: (time: number) => void;
-  isActive: boolean;
-  setIsActive: (isActive: boolean) => void;
 }) => {
   const [customTime, setCustomTime] = useState("");
 
@@ -34,17 +30,17 @@ const TimeSetter = ({
           onClick={() => handleSetTime(timeItem)}
           className={
             index === selectedIndex
-              ? "p-2 flex-1  border-solid border-1 outline outline-zinc-500 rounded-md text-sm text-zinc-900 font-semibold "
-              : "p-2 flex-1 bg-zinc-100 rounded-md text-sm font-semibold text-zinc-900 hover:bg-blue-50 transition-all duration-300 ease-in-out"
+              ? "p-2 flex-1  border-solid outline outline-pink-900 rounded-md text-sm text-pink-600 font-semibold "
+              : "p-2 flex-1 bg-zinc-300 rounded-md text-sm font-semibold text-zinc-900 hover:bg-blue-50 transition-all duration-300 ease-in-out"
           }
         >
           {timeItem / 60 + ":" + 0 + 0}
         </button>
       ))}
-      <div className="flex flex-col gap-3 w-fit relative">
+      {/* <div className="flex flex-col gap-3 w-fit relative">
         <div className="flex flex-row gap-2 absolute top-[-28px] right-0">
           <button className="flex flex-col items-center justify-center hover:bg-zinc-300 transition-all duration-300 text-xs text-zinc-400 font-semibold w-2 h-2 p-2 bg-zinc-200">
-            x
+            <Check size={16} className="text-blue-500" />
           </button>
           <button className="flex flex-col items-center justify-center hover:bg-zinc-300 transition-all duration-300 text-xs text-zinc-400 font-semibold w-2 h-2 p-2 bg-zinc-200">
             +
@@ -57,15 +53,7 @@ const TimeSetter = ({
           placeholder="Custom"
           onChange={(e) => setCustomTime(e.target.value)}
         />
-      </div>
-
-      {/* <Button
-        variant="ghost"
-        className={customTime > 0 ? "text-blue-500" : "text-white"}
-        onClick={() => handleSetCustomTime(customTime)}
-      >
-        Set
-      </Button> */}
+      </div> */}
     </div>
   );
 };

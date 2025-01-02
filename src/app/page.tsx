@@ -33,7 +33,7 @@ export default function Home() {
   }, [isActive, timeRemaining]);
 
   return (
-    <div className="flex flex-col w-full items-center justify-center p-8 gap-6 font-[family-name:var(--font-geist-sans)]">
+    <div className="flex bg-[#1E1E1E] flex-col w-full items-center justify-center p-8 gap-6 font-[family-name:var(--font-geist-sans)]">
       <ProgressBar
         initialTime={initialTime}
         isActive={isActive}

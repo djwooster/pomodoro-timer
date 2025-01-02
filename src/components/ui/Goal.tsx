@@ -13,7 +13,7 @@ const Goal = () => {
   };
 
   return (
-    <section className="flex flex-col gap-8 p-4 items-center w-[800px] bg-gray-50 rounded-lg dark:bg-gray-900">
+    <section className="flex flex-col gap-8 p-4 items-center w-[800px] bg-[#242424] rounded-lg dark:bg-gray-900">
       <div id="goal" className="w-full flex flex-row items-end gap-2">
         <div className="w-full">
           <h2 className="text-sm font-semibold mb-2 text-gray-600 dark:text-gray-200">

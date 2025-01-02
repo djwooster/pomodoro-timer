@@ -38,7 +38,7 @@ export default function RootLayout({
       >
         <SidebarProvider>
           <AppSidebar />
-          <main className="flex flex-1 items-start">
+          <main className="flex flex-1 items-start bg-[#1E1E1E]">
             <SidebarTrigger />
             {children}
           </main>
