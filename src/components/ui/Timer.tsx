@@ -104,7 +104,7 @@ const Timer = ({
                   <Button
                     onClick={toggleTimer}
                     variant={isActive ? "destructive" : "default"}
-                    className="w-full bg-[#4a1d1d] outline-none hover:bg-[#592121] hover:text-white v transition-all duration-300"
+                    className="w-full bg-[#4a1d1d] outline-none hover:bg-[#592121] hover:text-white  transition-all duration-300"
                   >
                     {isActive ? "Pause" : "Start"}
                   </Button>
