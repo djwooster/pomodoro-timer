@@ -68,7 +68,7 @@ const Timer = ({
               id="top-content"
               className="flex flex-col w-full items-center gap-6 justify-center"
             >
-              <h1 className="text-lg w-full leading-[140%] font-semibold text-center text-zinc-600 dark:text-gray-200">
+              <h1 className="text-lg w-full leading-[140%]  font-semibold text-center text-zinc-300 dark:text-gray-200">
                 Pomodoro Timer
               </h1>
 
