@@ -2,14 +2,10 @@ import React from "react";
 
 const Progressbar = ({
   initialTime,
-  isActive,
   timeRemaining,
-  setTimeRemaining,
 }: {
   initialTime: number;
-  isActive: boolean;
   timeRemaining: number;
-  setTimeRemaining: (time: number) => void;
 }) => {
   const progressBarWidth = (timeRemaining / initialTime) * 100;
 
