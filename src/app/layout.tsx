@@ -38,8 +38,8 @@ export default function RootLayout({
       >
         <SidebarProvider>
           <AppSidebar />
-          <main className="flex flex-1 items-start bg-[#1E1E1E]">
-            <SidebarTrigger />
+          <main className="flex flex-1  bg-[#111111]">
+            <SidebarTrigger className="text-white hover:bg-zinc-800 hover:text-zinc-300 transition-all duration-300" />
             {children}
           </main>
         </SidebarProvider>

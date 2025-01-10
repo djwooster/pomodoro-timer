@@ -48,7 +48,7 @@ export function AppSidebar() {
 
   return (
     <Sidebar>
-      <SidebarContent className="bg-[#1E1E1E]">
+      <SidebarContent className="bg-[#111111]">
         <SidebarGroup>
           <SidebarGroupLabel></SidebarGroupLabel>
           <SidebarGroupContent className="flex flex-col gap-2">

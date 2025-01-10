@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
 import TimeSetter from "./TimeSetter";
-import RedLight from "./RedLight";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
+
 const Timer = ({
   timeRemaining,
   setTimeRemaining,
@@ -59,19 +60,14 @@ const Timer = ({
   };
 
   return (
-    <div className="flex flex-col p-4 items-center w-[800px] bg-[#242424] rounded-lg dark:bg-gray-900 transition-all duration-200">
+    <div className="flex border-2 border-zinc-700 flex-col p-4 items-center w-[800px] bg-[#111111] rounded-lg dark:bg-gray-900 transition-all duration-200">
       <div className="w-[100%] relative">
-        <RedLight isActive={isActive} className="absolute top-0 right-0" />
-        <div className="flex flex-col p-8 w-full items-center justify-center bg-[#242424] dark:bg-gray-800 rounded-lg shadow-lg">
+        <div className="flex flex-col p-8 w-full items-center justify-center bg-[#111111] dark:bg-gray-800 rounded-lg shadow-lg">
           <div className="items-center justify-center w-full mb-8">
             <div
               id="top-content"
               className="flex flex-col w-full items-center gap-6 justify-center"
             >
-              <h1 className="text-lg w-full leading-[140%]  font-semibold text-center text-zinc-300 dark:text-gray-200">
-                Pomodoro Timer
-              </h1>
-
               <div className="flex flex-row items-center gap-12">
                 <button
                   onClick={decrementTime}
@@ -104,14 +100,14 @@ const Timer = ({
                   <Button
                     onClick={toggleTimer}
                     variant={isActive ? "destructive" : "default"}
-                    className="w-full bg-[#4a1d1d] outline-none hover:bg-[#592121] hover:text-white  transition-all duration-300"
+                    className="w-full bg-[#262626] outline-none hover:bg-zinc-700 hover:text-white  transition-all duration-300"
                   >
                     {isActive ? "Pause" : "Start"}
                   </Button>
                   <Button
                     onClick={resetTimer}
-                    variant="outline"
-                    className="w-full"
+                    variant="ghost"
+                    className="w-full text-zinc-200 hover:bg-zinc-900 hover:text-white transition-all duration-300"
                   >
                     Reset
                   </Button>

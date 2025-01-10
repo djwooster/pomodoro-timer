@@ -30,8 +30,8 @@ const TimeSetter = ({
           onClick={() => handleSetTime(timeItem)}
           className={
             index === selectedIndex
-              ? "p-2 flex-1 bg-blue-400 bg-opacity-20  outline outline-blue-600 outline-offset-4 rounded-md text-sm text-blue-300 font-semibold "
-              : "p-2 flex-1 bg-zinc-300 rounded-md text-sm font-semibold text-zinc-900 hover:bg-blue-50 transition-all duration-300 ease-in-out"
+              ? "p-2 flex-1 bg-zinc-300 rounded-md outline-zinc-600 text-sm font-semibold text-zinc-900 hover:bg-blue-50 transition-all outline-offset-4 duration-300 ease-in-out"
+              : "p-2 flex-1 bg-[#262626]  rounded-md text-sm text-blue-100 font-semibold "
           }
         >
           {timeItem / 60 + ":" + 0 + 0}
