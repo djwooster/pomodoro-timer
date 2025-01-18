@@ -3,30 +3,20 @@ import React from "react";
 const Progressbar = ({
   initialTime,
   timeRemaining,
+  className,
 }: {
   initialTime: number;
   timeRemaining: number;
+  className: string;
 }) => {
   const progressBarWidth = (timeRemaining / initialTime) * 100;
 
   return (
     <div
-      style={{
-        width: "800px",
-        height: "12px",
-        backgroundColor: "#262626",
-        borderRadius: "100px",
-      }}
+      className={`${className} w-full bg-[#262626] rounded-full transition-all duration-300 ease-in-out h-[12px]`}
     >
       <div
-        style={{
-          width: `${progressBarWidth}%`,
-          maxWidth: "100%",
-          transition: "all 1.5s ease-in-out",
-          height: "100%",
-          backgroundColor: "#FFFFFF ",
-          borderRadius: "100px",
-        }}
+        className={`${className} w-[${progressBarWidth}%] h-[12px] bg-[#FFFFFF] rounded-full`}
       />
     </div>
   );

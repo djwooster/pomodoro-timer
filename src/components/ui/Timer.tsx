@@ -1,27 +1,27 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/Button";
-import TimeSetter from "./TimeSetter";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
+import { formatTime } from "@/lib/utils";
+import ProgressBar from "./ProgressBar";
+import { Slider } from "@/components/ui/slider";
 
 const Timer = ({
-  timeRemaining,
-  setTimeRemaining,
   isActive,
   setIsActive,
   initialTime,
   displayTime,
   setDisplayTime,
+  setInitialTime,
+  children,
 }: {
-  timeRemaining: number;
-  setTimeRemaining: (time: number) => void;
   isActive: boolean;
   setIsActive: (boolean: boolean) => void;
   initialTime: number;
-  setInitialTime: (time: number) => void;
   displayTime: number;
   setDisplayTime: (time: number) => void;
+  setInitialTime: (time: number) => void;
+  children: React.ReactNode;
 }) => {
   useEffect(() => {
     document.title = `${formatTime(displayTime)}`;
@@ -30,37 +30,33 @@ const Timer = ({
   //
 
   const toggleTimer = () => {
-    if (timeRemaining > 0) {
+    if (displayTime > 0) {
       setIsActive(!isActive);
     }
   };
 
   const incrementTime = () => {
-    setTimeRemaining(timeRemaining + 60);
-    setInitialTime(timeRemaining + 60);
+    setDisplayTime(displayTime + 60);
+    setInitialTime(displayTime + 60);
   };
 
   const decrementTime = () => {
-    setTimeRemaining(timeRemaining - 60);
-    setInitialTime(timeRemaining - 60);
+    setDisplayTime(displayTime - 60);
+    setInitialTime(displayTime - 60);
   };
 
   const resetTimer = () => {
     setIsActive(false);
-    setTimeRemaining(initialTime);
-  };
-
-  const formatTime = (timeInSeconds: number) => {
-    // format the time in minutes and secondse
-    const minutes = Math.floor(timeInSeconds / 60); // get the minutes
-    const seconds = timeInSeconds % 60; // get the seconds
-    return `${minutes.toString().padStart(2, "0")}:${seconds
-      .toString() // convert the seconds to a string
-      .padStart(2, "0")}`; // return the time in the format of minutes:seconds:milliseconds
+    setDisplayTime(initialTime);
   };
 
   return (
     <div className="flex border-2 border-zinc-700 flex-col p-4 items-center w-[800px] bg-[#111111] rounded-lg dark:bg-gray-900 transition-all duration-200">
+      <ProgressBar
+        initialTime={initialTime}
+        timeRemaining={displayTime}
+        className="w-full"
+      />
       <div className="w-[100%] relative">
         <div className="flex flex-col p-8 w-full items-center justify-center bg-[#111111] dark:bg-gray-800 rounded-lg shadow-lg">
           <div className="items-center justify-center w-full mb-8">
@@ -85,14 +81,85 @@ const Timer = ({
                   +
                 </button>
               </div>
+
+              <div className="flex flex-col w-full items-center justify-between gap-3">
+                <div className="flex flex-row  items-center justify-between w-full ">
+                  <div className="flex flex-col items-center justify-center gap-1">
+                    <div className="w-4 h-4 flex flex-col  items-center justify-center">
+                      <p className="text-zinc-50 text-opacity-50 text-xs">5</p>
+                    </div>
+                    <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-1">
+                    <div className="w-4 h-4 flex flex-col  items-center justify-center">
+                      <p className="text-zinc-50 text-opacity-50 text-xs">10</p>
+                    </div>
+                    <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-1">
+                    <div className="w-4 h-4 flex flex-col  items-center justify-center">
+                      <p className="text-zinc-50 text-opacity-50 text-xs">15</p>
+                    </div>
+                    <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-1">
+                    <div className="w-4 h-4 flex flex-col  items-center justify-center">
+                      <p className="text-zinc-50 text-opacity-50 text-xs">20</p>
+                    </div>
+                    <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-1">
+                    <div className="w-4 h-4 flex flex-col  items-center justify-center">
+                      <p className="text-zinc-50 text-opacity-50 text-xs">25</p>
+                    </div>
+                    <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-1">
+                    <div className="w-4 h-4 flex flex-col  items-center justify-center">
+                      <p className="text-zinc-50 text-opacity-50 text-xs">30</p>
+                    </div>
+                    <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-1">
+                    <div className="w-4 h-4 flex flex-col  items-center justify-center">
+                      <p className="text-zinc-50 text-opacity-50 text-xs">35</p>
+                    </div>
+                    <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-1">
+                    <div className="w-4 h-4 flex flex-col  items-center justify-center">
+                      <p className="text-zinc-50 text-opacity-50 text-xs">40</p>
+                    </div>
+                    <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-1">
+                    <div className="w-4 h-4 flex flex-col  items-center justify-center">
+                      <p className="text-zinc-50 text-opacity-50 text-xs">45</p>
+                    </div>
+                    <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-1">
+                    <div className="w-4 h-4 flex flex-col  items-center justify-center">
+                      <p className="text-zinc-50 text-opacity-50 text-xs">50</p>
+                    </div>
+                    <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-1">
+                    <div className="w-4 h-4 flex flex-col  items-center justify-center">
+                      <p className="text-zinc-50 text-opacity-50 text-xs">55</p>
+                    </div>
+                    <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-1">
+                    <div className="w-4 h-4 flex flex-col  items-center justify-center">
+                      <p className="text-zinc-50 text-opacity-50 text-xs">60</p>
+                    </div>
+                    <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
+                  </div>
+                </div>
+              </div>
+              {children}
               <div className="flex flex-col w-full items-center gap-7 justify-center">
-                <TimeSetter
-                  className="w-full"
-                  isActive={isActive}
-                  setIsActive={setIsActive}
-                  setDisplayTime={setDisplayTime}
-                  displayTime={displayTime}
-                />
                 <div
                   id="timer-buttons"
                   className="flex justify-center w-full gap-4"

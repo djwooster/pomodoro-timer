@@ -37,15 +37,8 @@ const TimeSetter = ({
           {timeItem / 60 + ":" + 0 + 0}
         </button>
       ))}
-      {/* <div className="flex flex-col gap-3 w-fit relative">
-        <div className="flex flex-row gap-2 absolute top-[-28px] right-0">
-          <button className="flex flex-col items-center justify-center hover:bg-zinc-300 transition-all duration-300 text-xs text-zinc-400 font-semibold w-2 h-2 p-2 bg-zinc-200">
-            <Check size={16} className="text-blue-500" />
-          </button>
-          <button className="flex flex-col items-center justify-center hover:bg-zinc-300 transition-all duration-300 text-xs text-zinc-400 font-semibold w-2 h-2 p-2 bg-zinc-200">
-            +
-          </button>
-        </div>
+      <div className="flex flex-col gap-3 w-fit relative">
+        <div className="flex flex-row gap-2 absolute top-[-28px] right-0"></div>
         <input
           type="text"
           value={customTime}
@@ -53,7 +46,7 @@ const TimeSetter = ({
           placeholder="Custom"
           onChange={(e) => setCustomTime(e.target.value)}
         />
-      </div> */}
+      </div>
     </div>
   );
 };
