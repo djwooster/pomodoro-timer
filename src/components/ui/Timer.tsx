@@ -7,6 +7,7 @@ import ProgressBar from "./ProgressBar";
 import { Slider } from "@/components/ui/slider";
 
 const Timer = ({
+  setSliderValue,
   isActive,
   setIsActive,
   initialTime,
@@ -15,6 +16,7 @@ const Timer = ({
   setInitialTime,
   children,
 }: {
+  setSliderValue: (value: number[]) => void;
   isActive: boolean;
   setIsActive: (boolean: boolean) => void;
   initialTime: number;
@@ -86,73 +88,181 @@ const Timer = ({
                 <div className="flex flex-row  items-center justify-between w-full ">
                   <div className="flex flex-col items-center justify-center gap-1">
                     <div className="w-4 h-4 flex flex-col  items-center justify-center">
-                      <p className="text-zinc-50 text-opacity-50 text-xs">5</p>
+                      <p
+                        className="text-zinc-50 text-opacity-50 text-xs"
+                        onClick={() => {
+                          setDisplayTime(5 * 60);
+                          setInitialTime(5 * 60);
+                          setSliderValue([5]);
+                        }}
+                      >
+                        5
+                      </p>
                     </div>
                     <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
                   </div>
                   <div className="flex flex-col items-center justify-center gap-1">
                     <div className="w-4 h-4 flex flex-col  items-center justify-center">
-                      <p className="text-zinc-50 text-opacity-50 text-xs">10</p>
+                      <p
+                        className="text-zinc-50 text-opacity-50 text-xs"
+                        onClick={() => {
+                          setDisplayTime(10 * 60);
+                          setInitialTime(10 * 60);
+                          setSliderValue([10]);
+                        }}
+                      >
+                        10
+                      </p>
                     </div>
                     <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
                   </div>
                   <div className="flex flex-col items-center justify-center gap-1">
                     <div className="w-4 h-4 flex flex-col  items-center justify-center">
-                      <p className="text-zinc-50 text-opacity-50 text-xs">15</p>
+                      <p
+                        className="text-zinc-50 text-opacity-50 text-xs"
+                        onClick={() => {
+                          setDisplayTime(15 * 60);
+                          setInitialTime(15 * 60);
+                          setSliderValue([15]);
+                        }}
+                      >
+                        15
+                      </p>
                     </div>
                     <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
                   </div>
                   <div className="flex flex-col items-center justify-center gap-1">
                     <div className="w-4 h-4 flex flex-col  items-center justify-center">
-                      <p className="text-zinc-50 text-opacity-50 text-xs">20</p>
+                      <p
+                        className="text-zinc-50 text-opacity-50 text-xs"
+                        onClick={() => {
+                          setDisplayTime(20 * 60);
+                          setInitialTime(20 * 60);
+                          setSliderValue([20]);
+                        }}
+                      >
+                        20
+                      </p>
                     </div>
                     <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
                   </div>
                   <div className="flex flex-col items-center justify-center gap-1">
                     <div className="w-4 h-4 flex flex-col  items-center justify-center">
-                      <p className="text-zinc-50 text-opacity-50 text-xs">25</p>
+                      <p
+                        className="text-zinc-50 text-opacity-50 text-xs"
+                        onClick={() => {
+                          setDisplayTime(25 * 60);
+                          setInitialTime(25 * 60);
+                          setSliderValue([25]);
+                        }}
+                      >
+                        25
+                      </p>
                     </div>
                     <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
                   </div>
                   <div className="flex flex-col items-center justify-center gap-1">
                     <div className="w-4 h-4 flex flex-col  items-center justify-center">
-                      <p className="text-zinc-50 text-opacity-50 text-xs">30</p>
+                      <p
+                        className="text-zinc-50 text-opacity-50 text-xs"
+                        onClick={() => {
+                          setDisplayTime(30 * 60);
+                          setInitialTime(30 * 60);
+                          setSliderValue([30]);
+                        }}
+                      >
+                        30
+                      </p>
                     </div>
                     <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
                   </div>
                   <div className="flex flex-col items-center justify-center gap-1">
                     <div className="w-4 h-4 flex flex-col  items-center justify-center">
-                      <p className="text-zinc-50 text-opacity-50 text-xs">35</p>
+                      <p
+                        className="text-zinc-50 text-opacity-50 text-xs"
+                        onClick={() => {
+                          setDisplayTime(35 * 60);
+                          setInitialTime(35 * 60);
+                          setSliderValue([35]);
+                        }}
+                      >
+                        35
+                      </p>
                     </div>
                     <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
                   </div>
                   <div className="flex flex-col items-center justify-center gap-1">
                     <div className="w-4 h-4 flex flex-col  items-center justify-center">
-                      <p className="text-zinc-50 text-opacity-50 text-xs">40</p>
+                      <p
+                        className="text-zinc-50 text-opacity-50 text-xs"
+                        onClick={() => {
+                          setDisplayTime(40 * 60);
+                          setInitialTime(40 * 60);
+                          setSliderValue([40]);
+                        }}
+                      >
+                        40
+                      </p>
                     </div>
                     <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
                   </div>
                   <div className="flex flex-col items-center justify-center gap-1">
                     <div className="w-4 h-4 flex flex-col  items-center justify-center">
-                      <p className="text-zinc-50 text-opacity-50 text-xs">45</p>
+                      <p
+                        className="text-zinc-50 text-opacity-50 text-xs"
+                        onClick={() => {
+                          setDisplayTime(45 * 60);
+                          setInitialTime(45 * 60);
+                          setSliderValue([45]);
+                        }}
+                      >
+                        45
+                      </p>
                     </div>
                     <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
                   </div>
                   <div className="flex flex-col items-center justify-center gap-1">
                     <div className="w-4 h-4 flex flex-col  items-center justify-center">
-                      <p className="text-zinc-50 text-opacity-50 text-xs">50</p>
+                      <p
+                        className="text-zinc-50 text-opacity-50 text-xs"
+                        onClick={() => {
+                          setDisplayTime(50 * 60);
+                          setInitialTime(50 * 60);
+                          setSliderValue([50]);
+                        }}
+                      >
+                        50
+                      </p>
                     </div>
                     <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
                   </div>
                   <div className="flex flex-col items-center justify-center gap-1">
                     <div className="w-4 h-4 flex flex-col  items-center justify-center">
-                      <p className="text-zinc-50 text-opacity-50 text-xs">55</p>
+                      <p
+                        className="text-zinc-50 text-opacity-50 text-xs"
+                        onClick={() => {
+                          setDisplayTime(55 * 60);
+                          setInitialTime(55 * 60);
+                          setSliderValue([55]);
+                        }}
+                      >
+                        55
+                      </p>
                     </div>
                     <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
                   </div>
                   <div className="flex flex-col items-center justify-center gap-1">
                     <div className="w-4 h-4 flex flex-col  items-center justify-center">
-                      <p className="text-zinc-50 text-opacity-50 text-xs">60</p>
+                      <p
+                        className="text-zinc-50 text-opacity-50 text-xs"
+                        onClick={() => {
+                          setDisplayTime(60 * 60);
+                          setInitialTime(60 * 60);
+                          setSliderValue([60]);
+                        }}
+                      >
+                        60
+                      </p>
                     </div>
                     <div className="flex h-[6px] w-[1px] bg-blue-600 bg-opacity-50  flex-col items-center justify-center" />
                   </div>
